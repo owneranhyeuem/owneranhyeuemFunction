@@ -1,0 +1,43 @@
+local key = getgenv().Key
+local hwid = game:GetService("RbxAnalyticsService"):GetClientId()
+
+local mainScript = "https://raw.githubusercontent.com/owneranhyeuem/owneranhyeuem/refs/heads/main/owneranhyeuemMAIN"
+local backupScript = "https://raw.githubusercontent.com/owneranhyeuem/owneranhyeuem/refs/heads/main/owneranhyeuemKich"
+
+local url = "https://prominent-informed-intended-climate.trycloudflare.com/checkkey?key="
+    .. key .. "&hwid=" .. hwid
+
+local success, res = pcall(function()
+    return game:HttpGet(url)
+end)
+
+if not success or not res then
+    return loadstring(game:HttpGet(backupScript))()
+end
+
+local ok, data = pcall(function()
+    return game:GetService("HttpService"):JSONDecode(res)
+end)
+
+if not ok or not data then
+    return loadstring(game:HttpGet(backupScript))()
+end
+
+if data.status == "valid"
+or data.status == "hwid_bound" then
+
+    loadstring(game:HttpGet(mainScript))()
+
+elseif data.status == "hwid_mismatch" then
+
+    warn("HWID LOCKED")
+    return loadstring(game:HttpGet(backupScript))()
+
+elseif data.status == "not_redeemed" then
+
+    warn("KEY NOT REDEEMED")
+    return loadstring(game:HttpGet(backupScript))()
+
+else
+    return loadstring(game:HttpGet(backupScript))()
+end
