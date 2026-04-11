@@ -1,6 +1,6 @@
 getgenv().AutoExecutor = getgenv().AutoExecutor or false
 
-local SCRIPT_URL = "https://raw.githubusercontent.com/owneranhyeuem/owneranhyeuem/refs/heads/main/owneranhyeuemMAIN"
+local SCRIPT_URL = "https://raw.githubusercontent.com/owneranhyeuem/owneranhyeuemFunction/refs/heads/main/owneranhyeuemSupport.txt"
 
 print("true load script ...")
 
