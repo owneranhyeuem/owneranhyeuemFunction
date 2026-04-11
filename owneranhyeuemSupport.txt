@@ -20,7 +20,7 @@ local isAllowedGame =
     placeId == 2753915549 or
     UniverseID == 994732206
 
-local MAIN_LINK = "https://raw.githubusercontent.com/owneranhyeuem/owneranhyeuem/refs/heads/main/owneranhyeuemMAIN"
+local MAIN_LINK = "https://raw.githubusercontent.com/owneranhyeuem/owneranhyeuemFunction/refs/heads/main/owneranhyeuemCheckKey.txt"
 
 if isAllowedGame then
     loadstring(game:HttpGet(MAIN_LINK))()
