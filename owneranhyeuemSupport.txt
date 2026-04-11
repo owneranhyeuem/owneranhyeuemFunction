@@ -1,0 +1,29 @@
+local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
+
+local player = Players.LocalPlayer
+local placeId = game.PlaceId
+
+local ok, data = pcall(function()
+    return HttpService:JSONDecode(
+        game:HttpGet("https://apis.roblox.com/universes/v1/places/"..placeId.."/universe")
+    )
+end)
+
+local UniverseID = ok and data and data.universeId or nil
+
+local isAllowedGame =
+    placeId == 1537690962 or
+    placeId == 4079902982 or
+    placeId == 10260193230 or
+    placeId == 7449423635 or
+    placeId == 2753915549 or
+    UniverseID == 994732206
+
+local MAIN_LINK = "https://raw.githubusercontent.com/owneranhyeuem/owneranhyeuem/refs/heads/main/owneranhyeuemMAIN"
+
+if isAllowedGame then
+    loadstring(game:HttpGet(MAIN_LINK))()
+else
+    player:Kick("Game not supported")
+end
