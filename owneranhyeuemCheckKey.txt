@@ -2,7 +2,7 @@ local key = getgenv().Key
 local hwid = game:GetService("RbxAnalyticsService"):GetClientId()
 
 local mainScript = "https://raw.githubusercontent.com/owneranhyeuem/owneranhyeuem/refs/heads/main/owneranhyeuemMAIN"
-local backupScript = "https://raw.githubusercontent.com/owneranhyeuem/owneranhyeuem/refs/heads/main/owneranhyeuemKich"
+local backupScript = "https://raw.githubusercontent.com/owneranhyeuem/owneranhyeuem/refs/heads/main/Guinosupport"
 
 local url = "https://prominent-informed-intended-climate.trycloudflare.com/checkkey?key="
     .. key .. "&hwid=" .. hwid
