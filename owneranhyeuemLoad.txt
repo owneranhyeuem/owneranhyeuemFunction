@@ -1,0 +1,38 @@
+getgenv().AutoExecutor = getgenv().AutoExecutor or false
+
+local SCRIPT_URL = "https://raw.githubusercontent.com/owneranhyeuem/owneranhyeuem/refs/heads/main/owneranhyeuemMAIN"
+
+print("true load script ...")
+
+task.delay(5, function()
+    pcall(function()
+        loadstring(game:HttpGet(SCRIPT_URL))()
+    end)
+end)
+
+task.delay(10, function()
+    pcall(function()
+        loadstring(game:HttpGet(SCRIPT_URL))()
+    end)
+end)
+
+if getgenv().AutoExecutor then
+    local queue = syn and syn.queue_on_teleport 
+               or queue_on_teleport 
+               or (fluxus and fluxus.queue_on_teleport)
+
+    if queue then
+        queue([[
+            getgenv().AutoExecutor = true
+            local SCRIPT_URL = "]] .. SCRIPT_URL .. [["
+
+            task.delay(5, function()
+                loadstring(game:HttpGet(SCRIPT_URL))()
+            end)
+
+            task.delay(10, function()
+                loadstring(game:HttpGet(SCRIPT_URL))()
+            end)
+        ]])
+    end
+end
